@@ -6,7 +6,7 @@ import http from "./httpService"
 const tokenKey = "token"
 export async function loginUser(user) {
 	try {
-		const { data } = await http.post(`/auth/user/login`, user)
+		const { data } = await http.post(`/api/v1/auth/user/login`, user)
 		toast.success(data.message)
 		return data
 	} catch (err) {
@@ -24,7 +24,7 @@ export async function loginUser(user) {
 }
 export async function signupUser(user) {
 	try {
-		const { data } = await http.post(`/auth/user/register`, user)
+		const { data } = await http.post(`/api/v1/auth/user/register`, user)
 		toast.success(data.message)
 		return data
 	} catch (err) {
