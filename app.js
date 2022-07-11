@@ -32,16 +32,16 @@ app.use((req, res, next) => {
 	}
 	next()
 })
-app.get("/", (req, res) => {
-	res.status(200).json(
-		handleFetchResponse({
-			status: false,
-			code: 200,
-			message: "Welcome to wordbaytech test auth api",
-			data: []
-		})
-	)
-})
+// app.get("/", (req, res) => {
+// 	res.status(200).json(
+// 		handleFetchResponse({
+// 			status: false,
+// 			code: 200,
+// 			message: "Welcome to wordbaytech test auth api",
+// 			data: []
+// 		})
+// 	)
+// })
 app.use("/api/v1/auth", auth)
 app.use("*", invalidRoutes)
 app.use(error)
