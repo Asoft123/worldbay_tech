@@ -5,7 +5,12 @@
 	"main": "server.js",
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
-		"start": "nodemon server.js"
+		"client-install": "yarn install --prefix client",
+		"start": "NODE_ENV=production node server.js",
+		"server": "nodemon server.js",
+		"client": "yarn start --prefix client",
+		"dev": "concurrently \"nodemon server\" \" cd client && yarn start\"",
+		"heroku-postbuild": "YARN_PRODUCTION=false cd client && yarn install && yarn build"
 	},
 	"repository": {
 		"type": "git",
@@ -16,7 +21,8 @@
 		"Express",
 		"Reactjs",
 		"Styled-Components",
-		"MERN"
+		"MERN",
+		"api"
 	],
 	"author": "Festus Alabo Augustine",
 	"license": "ISC",
@@ -25,17 +31,23 @@
 	},
 	"homepage": "https://github.com/Asoft123/worldbay_tech#readme",
 	"dependencies": {
+		"axios": "^0.27.2",
 		"body-parser": "^1.20.0",
 		"compression": "^1.7.4",
+		"concurrently": "^7.2.2",
 		"config": "^3.3.7",
 		"cors": "^2.8.5",
 		"express": "^4.18.1",
 		"express-async-errors": "^3.1.1",
 		"helmet": "^5.1.0",
+		"jsonwebtoken": "^8.5.1",
 		"lodash": "^4.17.21",
 		"morgan": "^1.10.0",
 		"nodemon": "^2.0.19",
 		"winston": "^3.8.1",
 		"yup": "^0.32.11"
+	},
+	"engines": {
+		"yarn": "1.22.10"
 	}
 }

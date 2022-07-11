@@ -1,6 +1,6 @@
 function handleFetchResponse(response) {
 	return {
-		status: response?.status ? "success" : "error",
+		status: response?.status,
 		code: response?.code,
 		message: response?.message,
 		data: response?.data

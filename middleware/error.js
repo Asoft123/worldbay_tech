@@ -1,4 +1,5 @@
 const winston = require("winston")
+const handleValidationResponse = require("../handlers/validationResponse")
 module.exports = function (err, req, res, next) {
 	const logger = winston.createLogger({
 		level: "info",
@@ -31,5 +32,5 @@ module.exports = function (err, req, res, next) {
 	// debug
 	// silly
 
-	res.status(500).send("Something failed")
+	res.status(500).send(handleValidationResponse({ code: 500, status: "error", message: "Server Error, an unxpected error occurred" }))
 }

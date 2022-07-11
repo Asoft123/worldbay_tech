@@ -1,6 +1,6 @@
 function handleValidationResponse(response) {
 	return {
-		status: "error",
+		status: response?.status,
 		code: response?.code,
 		message: response?.message
 	}

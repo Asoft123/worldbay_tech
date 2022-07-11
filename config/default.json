@@ -1,3 +1,4 @@
 {
-	"BASE_URL": "https://grocedy_web_api.ms3soft.com/api/data"
+	"BASE_URL": "",
+	"JTW_PRIVATE_KEY": ""
 }

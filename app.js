@@ -9,6 +9,7 @@ const handleFetchResponse = require("./handlers/responseHandle")
 const error = require("./middleware/error")
 
 const auth = require("./routes/auth.routes")
+const invalidRoutes = require("./routes/invalid.routes")
 
 const app = express()
 
@@ -42,6 +43,7 @@ app.get("/", (req, res) => {
 	)
 })
 app.use("/api/v1/auth", auth)
+app.use("*", invalidRoutes)
 app.use(error)
 
 module.exports = app
